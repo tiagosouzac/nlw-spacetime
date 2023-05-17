@@ -56,6 +56,9 @@ module.exports = {
         sans: ['var(--font-roboto)', 'sans-serif'],
         alt: ['var(--font-bai-jamjuree)', 'sans-serif'],
       },
+      fontSize: {
+        '5xl': '2.5rem',
+      },
       blur: {
         full: '194px',
       },

@@ -1,5 +1,8 @@
 import { User } from 'lucide-react'
 
+import logoImg from '../assets/nlw-spacetime-logo.svg'
+import Image from 'next/image'
+
 export default function Home() {
   return (
     <main className="grid min-h-screen grid-cols-2">
@@ -25,6 +28,29 @@ export default function Home() {
             memórias!
           </p>
         </a>
+
+        {/* Hero */}
+        <div className="grid justify-items-start gap-5">
+          <Image src={logoImg} alt="NLW Spacetime" />
+
+          <div className="max-w-[420px] space-y-1">
+            <h1 className="text-5xl font-bold leading-tight text-gray-50">
+              Sua cápsula do tempo
+            </h1>
+
+            <p className="text-lg leading-relaxed">
+              Colecione momentos marcantes da sua jornada e compartilhe (se
+              quiser) com o mundo!
+            </p>
+          </div>
+
+          <a
+            className="rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-black hover:bg-green-600"
+            href=""
+          >
+            Cadastrar lembrança
+          </a>
+        </div>
       </div>
 
       {/* Right */}
