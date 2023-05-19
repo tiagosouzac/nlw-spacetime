@@ -1,7 +1,7 @@
+import Image from 'next/image'
 import { User } from 'lucide-react'
 
 import logoImg from '../assets/nlw-spacetime-logo.svg'
-import Image from 'next/image'
 
 export default function Home() {
   return (
