@@ -1,4 +1,5 @@
 export { SignIn } from './SignIn'
+export { Profile } from './Profile'
 export { Hero } from './Hero'
 export { Copyright } from './Copyright'
 export { EmptyMemories } from './EmptyMemories'

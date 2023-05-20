@@ -1,11 +1,14 @@
-import { SignIn, Hero, Copyright, EmptyMemories } from '@/components'
+import { cookies } from 'next/headers'
+import { SignIn, Hero, Copyright, EmptyMemories, Profile } from '@/components'
 
 export default function Home() {
+  const isAuthenticated = cookies().get('token')
+
   return (
     <main className="grid min-h-screen grid-cols-2">
       {/* Left */}
       <div className="relative grid content-between overflow-hidden border-r border-white/10 bg-[url(../assets/bg-stars.svg)] bg-cover px-28 py-16">
-        <SignIn />
+        {isAuthenticated ? <Profile /> : <SignIn />}
         <Hero />
         <Copyright />
 
