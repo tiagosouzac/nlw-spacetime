@@ -1,22 +1,9 @@
 import { useEffect } from 'react'
-import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
+import { Text, TouchableOpacity, View } from 'react-native'
 import { useRouter } from 'expo-router'
-import { styled } from 'nativewind'
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
 import * as SecureStore from 'expo-secure-store'
-
-import {
-  useFonts,
-  Roboto_400Regular as RobotoRegular,
-  Roboto_700Bold as RobotoBold,
-} from '@expo-google-fonts/roboto'
-
-import { BaiJamjuree_700Bold as BaiJamjureeBold } from '@expo-google-fonts/bai-jamjuree'
-
 import { api } from '../src/lib/api'
-import blurBg from '../src/assets/bg-blur.png'
-import Stripes from '../src/assets/stripes.svg'
 import NLWLogo from '../src/assets/nlw-spacetime-logo.svg'
 
 const discovery = {
@@ -26,16 +13,8 @@ const discovery = {
     'https://github.com/settings/connections/applications/3fdfa2962471e5f74e52',
 }
 
-const StyledStripes = styled(Stripes)
-
 export default function App() {
   const router = useRouter()
-
-  const [hasLoadedFonts] = useFonts({
-    RobotoRegular,
-    RobotoBold,
-    BaiJamjureeBold,
-  })
 
   const [, response, signInWithGithub] = useAuthRequest(
     {
@@ -64,18 +43,8 @@ export default function App() {
     }
   }, [handleGithubOAuthCode, response])
 
-  if (!hasLoadedFonts) return null
-
   return (
-    <ImageBackground
-      source={blurBg}
-      className="relative flex-1 items-center bg-gray-900 py-10"
-      imageStyle={{ position: 'absolute', left: '-100%' }}
-    >
-      <StatusBar style="light" translucent />
-
-      <StyledStripes className="absolute bottom-12 left-2 top-12" />
-
+    <View className="flex-1 items-center px-8 py-10">
       <View className="max-w-xs flex-1 items-center justify-center gap-6">
         <NLWLogo />
 
@@ -104,6 +73,6 @@ export default function App() {
       <Text className="text-sn text-center font-body leading-relaxed text-gray-200">
         Feito com 💜 no NLW da Rocketseat
       </Text>
-    </ImageBackground>
+    </View>
   )
 }
