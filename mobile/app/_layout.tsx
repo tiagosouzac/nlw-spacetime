@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import { ImageBackground } from 'react-native'
+import { SplashScreen, Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import * as SecureStore from 'expo-secure-store'
 import { styled } from 'nativewind'
@@ -13,8 +15,6 @@ import {
 } from '@expo-google-fonts/roboto'
 
 import { BaiJamjuree_700Bold as BaiJamjureeBold } from '@expo-google-fonts/bai-jamjuree'
-import { Stack } from 'expo-router'
-import { useEffect, useState } from 'react'
 
 const StyledStripes = styled(Stripes)
 
@@ -33,7 +33,7 @@ export default function Layout() {
     BaiJamjureeBold,
   })
 
-  if (!hasLoadedFonts) return null
+  if (!hasLoadedFonts) return <SplashScreen />
 
   return (
     <ImageBackground
